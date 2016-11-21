@@ -2,4 +2,4 @@
 .tmp/
 bower_components/
 node_modules/
-nrc-lab-frontend.iml
+*.iml

@@ -22,6 +22,5 @@ angular.module('app')
 
         vm.example = Example;
         vm.samples = Example.samples;
-        vm.basePath = Conf.basePath;
         
     });

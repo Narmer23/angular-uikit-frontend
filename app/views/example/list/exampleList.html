@@ -29,7 +29,7 @@
 
 <div class="uk-panel uk-panel-box uk-panel-box-secondary">
     <div class="nrc-shadow uk-border-rounded">
-        <div class="uk-panel uk-panel-box nrc-medium-primary-bg uk-margin-remove">
+        <div class="uk-panel uk-panel-box uk-medium-primary-bg uk-margin-remove">
             <h3 class="uk-margin-remove uk-contrast uk-float-left">
                 <i class="uk-icon-clone uk-text-success "></i> Examples
             </h3>
@@ -43,7 +43,7 @@
                 <div ng-repeat="example in vm.examples">
                     <div class="uk-panel uk-panel-box uk-panel-box-list uk-panel-hover uk-flex uk-flex-column nrc-shadow" ui-sref="example.detail({exampleId: example.id})">
                         <div class="uk-panel-teaser hx-card-teaser"
-                            ng-style="{'background-image': 'http://placehold.it/200x200'}">
+                            ng-style="{'background-image': 'url(\'http://placehold.it/200x200\')'}">
                             <figure class="uk-overlay">
                                 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
                                     <p>{{example.name}}</p>

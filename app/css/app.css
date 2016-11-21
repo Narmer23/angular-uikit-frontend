@@ -43,13 +43,13 @@ a:hover {
  */
 a,
 .uk-link {
-  color: #59b581;
+  color: #D84813;
   text-decoration: none;
   cursor: pointer; }
 
 a:hover,
 .uk-link:hover {
-  color: #79C79B;
+  color: #EE6E3E;
   text-decoration: underline; }
 
 /* Text-level semantics
@@ -1365,7 +1365,7 @@ iframe {
  * Primary
  */
 .uk-block-primary {
-  background: #5388a1; }
+  background: #145A8B; }
 
 /*
  * Secondary
@@ -1645,20 +1645,20 @@ ul.uk-nav-sub {
 
 /* Active */
 .uk-nav-side > li.uk-active > a {
-  background: #59b581;
+  background: #D84813;
   color: #fff; }
 
 /*
  * Sub-object: `uk-nav-header`
  */
 .uk-nav-side .uk-nav-header {
-  color: #59b581; }
+  color: #D84813; }
 
 /*
  * Sub-object: `uk-nav-divider`
  */
 .uk-nav-side .uk-nav-divider {
-  border-top: 1px solid #568ea8; }
+  border-top: 1px solid #156094; }
 
 /*
  * Nested items
@@ -1684,7 +1684,7 @@ ul.uk-nav-sub {
  */
 .uk-nav-dropdown > li > a:hover,
 .uk-nav-dropdown > li > a:focus {
-  background: #59b581;
+  background: #D84813;
   color: #fff;
   /* 2 */
   outline: none; }
@@ -3330,38 +3330,38 @@ select.uk-form-width-mini {
  * Modifier: `uk-button-primary`
  */
 .uk-button-primary {
-  background-color: #5388a1;
+  background-color: #145A8B;
   color: #fff; }
 
 /* Hover */
 .uk-button-primary:hover,
 .uk-button-primary:focus {
-  background-color: #6095ad;
+  background-color: #1768a1;
   color: #fff; }
 
 /* Active */
 .uk-button-primary:active,
 .uk-button-primary.uk-active {
-  background-color: #4a7a90;
+  background-color: #114c75;
   color: #fff; }
 
 /*
  * Modifier: `uk-button-success`
  */
 .uk-button-success {
-  background-color: #59b581;
+  background-color: #D84813;
   color: #fff; }
 
 /* Hover */
 .uk-button-success:hover,
 .uk-button-success:focus {
-  background-color: #6bbd8e;
+  background-color: #eb521a;
   color: #fff; }
 
 /* Active */
 .uk-button-success:active,
 .uk-button-success.uk-active {
-  background-color: #4ba974;
+  background-color: #c14011;
   color: #fff; }
 
 /*
@@ -5672,7 +5672,7 @@ select.uk-form-width-mini {
 .uk-badge {
   display: inline-block;
   padding: 0 5px;
-  background: #59b581;
+  background: #D84813;
   font-size: 10px;
   font-weight: bold;
   line-height: 14px;
@@ -7389,10 +7389,10 @@ a.uk-thumbnail:focus {
   color: #999 !important; }
 
 .uk-text-primary {
-  color: #5388a1 !important; }
+  color: #145A8B !important; }
 
 .uk-text-success {
-  color: #59b581 !important; }
+  color: #D84813 !important; }
 
 .uk-text-warning {
   color: #e28327 !important; }
@@ -8407,369 +8407,6 @@ a.uk-thumbnail:focus {
     page-break-after: avoid; } }
 
 /* ========================================================================
-   Component: Slideshow
- ========================================================================== */
-/*
- * 1. Create position context
- * 2. Create stacking context to prevent z-index issues with other components
- * 3. Set width because child elements are positioned absolute. Height is set via JS
- * 4. Reset list style
- * 5. Clip child elements
- * 6. Deactivate browser history navigation in IE11
- */
-.uk-slideshow {
-  /* 1 */
-  position: relative;
-  /* 2 */
-  z-index: 0;
-  /* 3 */
-  width: 100%;
-  /* 4 */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  /* 5 */
-  overflow: hidden;
-  /* 6 */
-  touch-action: pan-y; }
-
-/*
- * Sub-object item
- * 1. Position items above each other
- * 2. Expand to parent container width
- * 3. Hide by default
- */
-.uk-slideshow > li {
-  /* 1 */
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* 2 */
-  width: 100%;
-  /* 3 */
-  opacity: 0; }
-
-/*
- * Active
- * 1. Stack at first
- * 2. Show slide
- */
-.uk-slideshow > .uk-active {
-  /* 1 */
-  z-index: 10;
-  /* 2 */
-  opacity: 1; }
-
-/*
- * Hide default images which is only relevant to keep existing proportions
- */
-.uk-slideshow > li > img {
-  visibility: hidden; }
-
-/*
- * Pointer for controls
- */
-[data-uk-slideshow-slide] {
-  cursor: pointer; }
-
-/* Modifier: `uk-slideshow-fullscreen`
- ========================================================================== */
-.uk-slideshow-fullscreen,
-.uk-slideshow-fullscreen > li {
-  height: 100vh; }
-
-/* Animations
- ========================================================================== */
-/*
- * Fade
- */
-.uk-slideshow-fade-in {
-  -webkit-animation: uk-fade 0.5s linear;
-  animation: uk-fade 0.5s linear; }
-
-.uk-slideshow-fade-out {
-  -webkit-animation: uk-fade 0.5s linear reverse;
-  animation: uk-fade 0.5s linear reverse; }
-
-/*
- * Scroll
- */
-.uk-slideshow-scroll-forward-in {
-  -webkit-animation: uk-slide-right 0.5s ease-in-out;
-  animation: uk-slide-right 0.5s ease-in-out; }
-
-.uk-slideshow-scroll-forward-out {
-  -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
-  animation: uk-slide-left 0.5s ease-in-out reverse; }
-
-.uk-slideshow-scroll-backward-in {
-  -webkit-animation: uk-slide-left 0.5s ease-in-out;
-  animation: uk-slide-left 0.5s ease-in-out; }
-
-.uk-slideshow-scroll-backward-out {
-  -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
-  animation: uk-slide-right 0.5s ease-in-out reverse; }
-
-/*
- * Scale
- */
-.uk-slideshow-scale-out {
-  -webkit-animation: uk-fade-scale-15 0.5s ease-in-out reverse;
-  animation: uk-fade-scale-15 0.5s ease-in-out reverse; }
-
-/*
- * Swipe
- */
-.uk-slideshow-swipe-forward-in {
-  -webkit-animation: uk-slide-left-33 0.5s ease-in-out;
-  animation: uk-slide-left-33 0.5s ease-in-out; }
-
-.uk-slideshow-swipe-forward-out {
-  -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
-  animation: uk-slide-left 0.5s ease-in-out reverse; }
-
-.uk-slideshow-swipe-backward-in {
-  -webkit-animation: uk-slide-right-33 0.5s ease-in-out;
-  animation: uk-slide-right-33 0.5s ease-in-out; }
-
-.uk-slideshow-swipe-backward-out {
-  -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
-  animation: uk-slide-right 0.5s ease-in-out reverse; }
-
-.uk-slideshow-swipe-forward-in:before,
-.uk-slideshow-swipe-backward-in:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-  -webkit-animation: uk-fade 0.5s ease-in-out reverse;
-  animation: uk-fade 0.5s ease-in-out reverse; }
-
-/* ========================================================================
-   Component: Dotnav
- ========================================================================== */
-/*
- * 1. Gutter
- * 2. Remove default list style
- */
-.uk-dotnav {
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-  /* 1 */
-  margin-left: -15px;
-  margin-top: -15px;
-  /* 2 */
-  padding: 0;
-  list-style: none; }
-
-/*
- * 1. Space is allocated solely based on content dimensions
- * 2. Horizontal gutter is using `padding` so `uk-width-*` classes can be applied
- */
-.uk-dotnav > * {
-  /* 1 */
-  -ms-flex: none;
-  -webkit-flex: none;
-  flex: none;
-  /* 2 */
-  padding-left: 15px;
-  margin-top: 15px; }
-
-/*
- * DEPRECATED IE9 Support
- */
-.uk-dotnav:before,
-.uk-dotnav:after {
-  content: "";
-  display: block;
-  overflow: hidden; }
-
-.uk-dotnav:after {
-  clear: both; }
-
-.uk-dotnav > * {
-  float: left; }
-
-/* Items
- ========================================================================== */
-/*
- * Items
- * 1. Hide text if present
- */
-.uk-dotnav > * > * {
-  display: block;
-  box-sizing: content-box;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(50, 50, 50, 0.1);
-  /* 1 */
-  text-indent: 100%;
-  overflow: hidden;
-  white-space: nowrap; }
-
-/*
- * Hover
- * 1. Apply hover style also to focus state
- * 2. Remove default focus style
- */
-.uk-dotnav > * > :hover,
-.uk-dotnav > * > :focus {
-  background: rgba(50, 50, 50, 0.4);
-  /* 2 */
-  outline: none; }
-
-/* OnClick */
-.uk-dotnav > * > :active {
-  background: rgba(50, 50, 50, 0.6); }
-
-/* Active */
-.uk-dotnav > .uk-active > * {
-  background: rgba(50, 50, 50, 0.4); }
-
-/* Modifier: `uk-dotnav-contrast`
- ========================================================================== */
-.uk-dotnav-contrast > * > * {
-  background: rgba(255, 255, 255, 0.4); }
-
-/*
- * Hover
- * 1. Apply hover style also to focus state
- */
-.uk-dotnav-contrast > * > :hover,
-.uk-dotnav-contrast > * > :focus {
-  background: rgba(255, 255, 255, 0.7); }
-
-/* OnClick */
-.uk-dotnav-contrast > * > :active {
-  background: rgba(255, 255, 255, 0.9); }
-
-/* Active */
-.uk-dotnav-contrast > .uk-active > * {
-  background: rgba(255, 255, 255, 0.9); }
-
-/* Modifier: 'uk-dotnav-vertical'
- ========================================================================== */
-/*
- * DEPRECATED
- */
-.uk-dotnav-vertical {
-  -ms-flex-direction: column;
-  -webkit-flex-direction: column;
-  flex-direction: column; }
-
-/*
- * DEPRECATED IE9 Support
- */
-.uk-dotnav-vertical > * {
-  float: none; }
-
-/* ========================================================================
-   Component: Slidenav
- ========================================================================== */
-/*
- * 1. Required for `a` elements
- * 2. Dimension
- * 3. Style
- */
-.uk-slidenav {
-  /* 1 */
-  display: inline-block;
-  /* 2 */
-  box-sizing: border-box;
-  width: 60px;
-  height: 60px;
-  /* 3 */
-  line-height: 60px;
-  color: rgba(50, 50, 50, 0.4);
-  font-size: 60px;
-  text-align: center; }
-
-/*
- * Hover
- * 1. Apply hover style also to focus state
- * 2. Remove default focus style
- * 3. Required for `a` elements
- * 4. Style
- */
-.uk-slidenav:hover,
-.uk-slidenav:focus {
-  /* 2 */
-  outline: none;
-  /* 3 */
-  text-decoration: none;
-  /* 4 */
-  color: rgba(50, 50, 50, 0.7);
-  cursor: pointer; }
-
-/* Active */
-.uk-slidenav:active {
-  color: rgba(50, 50, 50, 0.9); }
-
-/*
- * Icons
- */
-.uk-slidenav-previous:before {
-  content: "";
-  font-family: FontAwesome; }
-
-.uk-slidenav-next:before {
-  content: "";
-  font-family: FontAwesome; }
-
-/* Sub-object: `uk-slidenav-position`
- ========================================================================== */
-/*
- * Create position context
- */
-.uk-slidenav-position {
-  position: relative; }
-
-/*
- * Center vertically
- */
-.uk-slidenav-position .uk-slidenav {
-  display: none;
-  position: absolute;
-  top: 50%;
-  z-index: 1;
-  margin-top: -30px; }
-
-.uk-slidenav-position:hover .uk-slidenav {
-  display: block; }
-
-.uk-slidenav-position .uk-slidenav-previous {
-  left: 20px; }
-
-.uk-slidenav-position .uk-slidenav-next {
-  right: 20px; }
-
-/* Modifier: `uk-slidenav-contrast`
- ========================================================================== */
-.uk-slidenav-contrast {
-  color: rgba(255, 255, 255, 0.5); }
-
-/*
- * Hover
- * 1. Apply hover style also to focus state
- */
-.uk-slidenav-contrast:hover,
-.uk-slidenav-contrast:focus {
-  color: rgba(255, 255, 255, 0.7); }
-
-/* Active */
-.uk-slidenav-contrast:active {
-  color: rgba(255, 255, 255, 0.9); }
-
-/* ========================================================================
    Component: Tooltip
  ========================================================================== */
 /*
@@ -8886,141 +8523,6 @@ a.uk-thumbnail:focus {
   border-right-color: #333; }
 
 /* ========================================================================
-   Component: Nestable
- ========================================================================== */
-.uk-nestable {
-  padding: 0;
-  list-style: none; }
-
-/*
- * Disables the default callout shown when you touch and hold a touch target
- * Currently only works in Webkit
- */
-.uk-nestable a,
-.uk-nestable img {
-  -webkit-touch-callout: none; }
-
-/* Sub-object `uk-nestable-list`
- ========================================================================== */
-.uk-nestable-list {
-  margin: 0;
-  padding-left: 40px;
-  list-style: none; }
-
-/* Sub-modifier `uk-nestable-item`
- ========================================================================== */
-/*
- * 1. Deactivate browser touch actions in IE11
- */
-.uk-nestable-item {
-  /* 1 */
-  touch-action: none; }
-
-.uk-nestable-item + .uk-nestable-item {
-  margin-top: 10px; }
-
-.uk-nestable-list:not(.uk-nestable-dragged) > .uk-nestable-item:first-child {
-  margin-top: 10px; }
-
-/* Sub-modifier `uk-nestable-dragged`
- ========================================================================== */
-/*
- * 1. Reset style
- */
-.uk-nestable-dragged {
-  position: absolute;
-  z-index: 1050;
-  pointer-events: none;
-  /* 1 */
-  padding-left: 0; }
-
-/* Sub-modifier `uk-nestable-placeholder`
- ========================================================================== */
-.uk-nestable-placeholder {
-  position: relative; }
-
-.uk-nestable-placeholder > * {
-  opacity: 0; }
-
-.uk-nestable-placeholder:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border: 1px dashed #ddd;
-  opacity: 1; }
-
-/* Empty List
- ========================================================================== */
-.uk-nestable-empty {
-  min-height: 30px; }
-
-/* Sub-object `uk-nestable-handle`
- ========================================================================== */
-/*
- * Deactivate browser touch actions in IE11
- */
-.uk-nestable-handle {
-  touch-action: none; }
-
-/* Hover */
-.uk-nestable-handle:hover {
-  cursor: move; }
-
-/* Sub-object `uk-nestable-moving`
- ========================================================================== */
-.uk-nestable-moving,
-.uk-nestable-moving * {
-  cursor: move; }
-
-/* Fixes dragging items over iframes */
-.uk-nestable-moving iframe {
-  pointer-events: none; }
-
-/* [data-nestable-action='toggle']
- ========================================================================== */
-/*
- * 1. Makes text unselectable. Happens if double clicked by mistake
- */
-[data-nestable-action='toggle'] {
-  cursor: pointer;
-  /* 1 */
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
-/* Sub-object `.uk-nestable-toggle`
- ========================================================================== */
-.uk-nestable-toggle {
-  display: inline-block;
-  visibility: hidden; }
-
-.uk-nestable-toggle:after {
-  content: "";
-  font-family: FontAwesome; }
-
-.uk-parent > :not(.uk-nestable-list) .uk-nestable-toggle {
-  visibility: visible; }
-
-/*
- * Collapsed
- */
-.uk-collapsed .uk-nestable-list {
-  display: none; }
-
-.uk-collapsed .uk-nestable-toggle:after {
-  content: ""; }
-
-/* Sub-object `uk-nestable-panel`
- ========================================================================== */
-.uk-nestable-panel {
-  padding: 5px;
-  background: #f5f5f5; }
-
-/* ========================================================================
    Component: Autocomplete
  ========================================================================== */
 /*
@@ -9073,48 +8575,6 @@ a.uk-thumbnail:focus {
  */
 .uk-nav-autocomplete .uk-nav-divider {
   border-top: 1px solid #ddd; }
-
-/* ========================================================================
-   Component: Form file
- ========================================================================== */
-/*
- * 1. Behave like form elements
- * 2. Create position context for dropdowns
- * 3. Clip content
- */
-.uk-form-file {
-  /* 1 */
-  display: inline-block;
-  vertical-align: middle;
-  /* 2 */
-  position: relative;
-  /* 3 */
-  overflow: hidden; }
-
-/*
- * 1. Required for Firefox
- * 2. Expand height and required for the cursor
- */
-.uk-form-file input[type="file"] {
-  position: absolute;
-  top: 0;
-  z-index: 1;
-  width: 100%;
-  opacity: 0;
-  cursor: pointer;
-  /* 1 */
-  left: 0;
-  /* 2 */
-  font-size: 500px; }
-
-/* ========================================================================
-   Component: Upload
- ========================================================================== */
-/*
- * Create a box-shadow when dragging a file over the upload area
- */
-.uk-dragover {
-  box-shadow: 0 0 20px rgba(100, 100, 100, 0.3); }
 
 /* ========================================================================
    Component: Placeholder
@@ -9301,7 +8761,7 @@ a.uk-thumbnail:focus {
   height: 0;
   width: 0;
   box-sizing: border-box;
-  border: 0 solid #5388a1;
+  border: 0 solid #145A8B;
   border-radius: 50%;
   -webkit-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   -moz-animation: loader-figure 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -9318,7 +8778,7 @@ a.uk-thumbnail:focus {
   font-size: 0.875em;
   letter-spacing: 0.1em;
   line-height: 1.5em;
-  color: #5388a1;
+  color: #145A8B;
   white-space: nowrap;
   -webkit-animation: loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   -moz-animation: loader-label 1.15s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -9403,7 +8863,7 @@ a.uk-thumbnail:focus {
   z-index: 1001;
   width: 270px;
   border: none;
-  background-color: #0f3f56; }
+  background-color: #043456; }
   .uk-sidebar .uk-nav-side > li.uk-active > a {
     width: 83%;
     margin-left: 15px;
@@ -9418,19 +8878,22 @@ a.uk-thumbnail:focus {
       position: absolute;
       border-style: solid;
       border-width: 15px 0 15px 10px;
-      border-color: transparent transparent transparent #59b581;
+      border-color: transparent transparent transparent #D84813;
       z-index: 2; }
 
 /* Object: `uk-navbar-primary`
  ========================================================================== */
 .uk-navbar-primary {
-  background: #5388a1;
+  background: #145A8B;
   color: #fff; }
   .uk-navbar-primary a.uk-navbar-toggle {
     color: #fff; }
 
 /* Object: `uk-navbar-top`
  ========================================================================== */
+.uk-sidebar-logo {
+  height: 60px; }
+
 .uk-navbar-top {
   z-index: 1000;
   position: fixed;
@@ -9499,37 +8962,19 @@ a.uk-thumbnail:focus {
   position: absolute;
   left: 14px; }
 
-.nrc-logo {
-  height: 60px; }
-
-.nrc-background {
-  background: url("../images/bg-pattern2.png"), linear-gradient(180deg, #4ad391 0, #4bc4e8 100%); }
-
-.nrc-application-sheet-detail-qrcode {
-  position: absolute;
-  top: 5px;
-  right: 5px; }
-
-.nrc-medium-primary-bg {
-  background-color: #2d6682; }
-
-.nrc-care-labelling {
-  padding: 10px;
-  cursor: pointer; }
-
-.nrc-care-labelling.uk-active {
-  background-color: #b7d5e3; }
-
 .uk-table.hx-table-selectable tbody tr:hover {
   cursor: pointer; }
 
 .uk-table.hx-table-selectable tbody tr.uk-active {
-  background-color: #59b581;
+  background-color: #D84813;
   color: #fff; }
+
+.uk-medium-primary-bg {
+  background-color: #0A4670; }
 
 .uk-table thead th {
   font-size: 95%;
-  color: #5388a1; }
+  color: #145A8B; }
 
 .uk-border-rounded {
   overflow: hidden;
@@ -9554,7 +8999,7 @@ a.uk-thumbnail:focus {
   padding: 5px;
   background-color: #e2eff5;
   margin: 0 5px 5px 0;
-  color: #0f3f56;
+  color: #043456;
   display: inline-block; }
 
 td .uk-ng-table-form {
@@ -9568,7 +9013,7 @@ td .uk-ng-table-form {
 
 th {
   color: white !important;
-  background-color: #2d6682; }
+  background-color: #0A4670; }
 
 tr {
   border: solid 1px #e2e2e2; }
@@ -9576,7 +9021,7 @@ tr {
 thead tr {
   border: none; }
 
-.nrc-wrapper {
+.uk-wrapper {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -9584,7 +9029,7 @@ thead tr {
   right: 0; }
 
 .uk-panel-box-primary {
-  background-color: #5388a1; }
+  background-color: #145A8B; }
   .uk-panel-box-primary .uk-form input {
     border: none; }
   .uk-panel-box-primary .uk-form label {
@@ -9606,11 +9051,11 @@ thead tr {
   padding: 14px 0; }
 
 .uk-pagination > .uk-active > span {
-  background: #59b581; }
+  background: #D84813; }
 
 .uk-description-list-line dt {
   font-size: 93%;
-  color: #5388a1; }
+  color: #145A8B; }
 
 .uk-description-list-line dd {
   min-height: 20px; }

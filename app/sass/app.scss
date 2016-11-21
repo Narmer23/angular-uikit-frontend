@@ -12,15 +12,15 @@ $icon-font-path: "../bower_components/uikit/fonts" !default;
 //$breakpoint-xlarge:                              1220px !default;
 
 // Colors
-$color-light-primary: #b7d5e3;
-$color-primary: #5388a1;
-$color-medium-primary: #2d6682;
-$color-dark-primary: #0f3f56;
+$color-light-primary: #4C83AA;
+$color-primary: #145A8B;
+$color-medium-primary: #0A4670;
+$color-dark-primary: #043456;
 
-$color-light-secondary: #79C79B;
-$color-secondary: #59b581;
-$color-medium-secondary: #187C43;
-$color-dark-secondary: #06612E;
+$color-light-secondary: #EE6E3E;
+$color-secondary: #D84813;
+$color-medium-secondary: #AE3305;
+$color-dark-secondary: #862400;
 
 $color-danger: #BC482A;
 $color-success: #59B581;
@@ -103,6 +103,14 @@ $nav-dropdown-hover-background: $color-secondary;
     background-color: $color-secondary;
     color: #fff;
   }
+}
+
+.ng-dirty.ng-invalid{
+  border: 1px solid $color-danger;
+}
+
+.uk-medium-primary-bg {
+  background-color: $color-medium-primary;
 }
 
 .uk-table thead th {
