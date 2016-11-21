@@ -1,0 +1,38 @@
+{
+  "name": "Angular_Uikit",
+  "authors": [
+    "Sandro Tajè <sandro.taje@holonix.it>",
+    "Manuel Larsen <manuel.larsen@holonix.it>",
+    "Mosé Chiesa <mose.chiesa@holonix.it>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "uikit": "^2.26.3",
+    "angular": "latest",
+    "angular-ui-router": "latest",
+    "angular-translate": "latest",
+    "angular-translate-loader-static-files": "latest",
+    "ng-file-upload": "latest",
+    "angular-uikit": "https://github.com/sandrotaje/angular-uikit.git"
+  },
+  "overrides": {
+    "uikit": {
+      "main": [
+        "js/uikit.min.js",
+        "js/components/accordion.min.js",
+        "js/components/tooltip.min.js",
+        "js/components/pagination.min.js",
+        "js/components/autocomplete.min.js",
+        "js/components/notify.min.js",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2",
+        "fonts/FontAwesome.otf"
+      ]
+    }
+  }
+}

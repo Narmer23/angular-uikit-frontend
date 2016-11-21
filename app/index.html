@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NRC Lab</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+
+    <!-- bower:css -->
+    <!-- endbower -->
+
+    <!-- build:css css/bundle.min.css -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- endbuild -->
+    <style>
+        .ng-cloak {
+            display: none;
+        }
+    </style>
+
+
+</head>
+<body class="uk-height-viewport" ng-controller="MainController">
+<div class="loader-container" ng-show="inLoading">
+    <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Loading</p>
+    </div>
+</div>
+<div ui-view></div>
+
+<!--<script src="js/DYMO.Label.Framework_2.0Beta2.js" type="text/javascript" charset="UTF-8"> </script>-->
+<script src="js/DYMO.Label.Framework.latest.js" type="text/javascript" charset="UTF-8"> </script>
+<!-- bower:js -->
+<!-- endbower -->
+
+<!-- build:js bundle.min.js -->
+<!-- inject:js -->
+<!-- endinject -->
+<!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,69 @@
+<div class="uk-panel uk-panel-box uk-panel-space uk-panel-box-primary">
+    <form class="uk-form">
+        <fieldset>
+            <legend class="uk-contrast"><i class="uk-icon-search"></i> Ricerca
+            </legend>
+            <div class="uk-grid uk-grid-match uk-grid-small" data-uk-grid-margin>
+                <div class="uk-width-large-1-3 uk-width-medium-1-2">
+                    <label class="uk-form-label uk-contrast"><i class="uk-icon-edit"></i> Code</label>
+                    <div class="uk-form-row">
+                        <input type="text" placeholder="" class="uk-width-8-10" ng-model="vm.code"
+                               data-on-enter="vm.addFilter('CODE', 'codes', vm.code)">
+                        <div class="uk-button-group">
+                            <a href="" ng-click="vm.addFilter('CODE', 'codes', vm.code)"
+                               class="uk-button uk-button-success"><i class="uk-icon-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add above for every search field -->
+            </div>
+        </fieldset>
+    </form>
+    <div class="uk-margin">
+        <div class="hx-filter-tag" ng-style="{'background-color': f.color}" ng-repeat="f in vm.filterTags">
+            {{f.label}}: {{f.value}}
+            <a href="" ng-click="vm.removeFilter(f)" class="uk-close"></a>
+        </div>
+    </div>
+</div>
+
+<div class="uk-panel uk-panel-box uk-panel-box-secondary">
+    <div class="nrc-shadow uk-border-rounded">
+        <div class="uk-panel uk-panel-box nrc-medium-primary-bg uk-margin-remove">
+            <h3 class="uk-margin-remove uk-contrast uk-float-left">
+                <i class="uk-icon-clone uk-text-success "></i> Examples
+            </h3>
+            <a ui-sref="example.new" class="uk-button uk-button-success uk-float-right">
+                <i class="uk-icon-file"></i> New Example
+            </a>
+        </div>
+        <div class="uk-panel uk-panel-box">
+            <div class="uk-grid uk-grid-small uk-grid-width-medium-1-2 uk-grid-width-large-1-4 uk-grid-width-xlarge-1-5 uk-grid-match"
+                data-uk-grid-margin>
+                <div ng-repeat="example in vm.examples">
+                    <div class="uk-panel uk-panel-box uk-panel-box-list uk-panel-hover uk-flex uk-flex-column nrc-shadow" ui-sref="example.detail({exampleId: example.id})">
+                        <div class="uk-panel-teaser hx-card-teaser"
+                            ng-style="{'background-image': 'http://placehold.it/200x200'}">
+                            <figure class="uk-overlay">
+                                <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-bottom">
+                                    <p>{{example.name}}</p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <dl class="uk-description-list-line">
+                            <dt><i class="uk-icon-cogs"></i> Code</dt>
+                            <dd>{{example.code}}</dd>
+                            <dt><i class="uk-icon-magic"></i> Name</dt>
+                            <dd>{{example.name}}</dd>
+                        </dl>
+
+                        <div class="uk-flex uk-flex-item-1"></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    <ul class="uk-pagination" data-list-size="vm.examplesLength" data-page-size="vm.filter.pageSize"
+            data-on-page-change="vm.changePage($page)" data-uk-ng-pagination></ul>
+    </div>
+</div>

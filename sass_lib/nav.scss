@@ -1,0 +1,156 @@
+// Variables
+// ========================================================================
+
+$navbar-toggle-icon-search: "\f002" !default;
+$navbar-toggle-icon-bell-o: "\f0a2" !default;
+$navbar-toggle-icon-arrow-left: "\f060" !default;
+$navbar-toggle-icon-plus: "\f067" !default;
+$navbar-toggle-icon-files-o: "\f0c5" !default;
+$navbar-toggle-icon-pencil: "\f040" !default;
+$navbar-toggle-icon-print: "\f02f" !default;
+$navbar-toggle-icon-tag: "\f02b" !default;
+
+$uk-sidebar-width: 270px !default;
+$uk-navbar-top-height: 60px !default;
+
+/* Object: uk-sidebar
+ ========================================================================== */
+
+.uk-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  width: $uk-sidebar-width;
+  border: none;
+  background-color: $color-dark-primary;
+
+  .uk-nav-side > li.uk-active > a {
+    width: 83%;
+    margin-left: 15px;
+    position: relative;
+    z-index: 1;
+    &:after {
+      left: 100%;
+      top: 0;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      border-style: solid;
+      border-width: 15px 0 15px 10px;
+      border-color: transparent transparent transparent $color-secondary;
+      z-index: 2;
+    }
+  }
+}
+
+/* Object: `uk-navbar-primary`
+ ========================================================================== */
+
+.uk-navbar-primary {
+  background: $color-primary;
+  color: #fff;
+  a.uk-navbar-toggle {
+    color: #fff;
+  }
+}
+
+/* Object: `uk-navbar-top`
+ ========================================================================== */
+
+.uk-sidebar-logo {
+  height: $uk-navbar-top-height;
+}
+
+.uk-navbar-top {
+  z-index: 1000;
+  position: fixed;
+  background-color: $uk-navbar-top-background;
+  -webkit-box-shadow: 0 3px 8px 1px rgba(50, 50, 50, 0.41);
+  -moz-box-shadow: 0 3px 8px 1px rgba(50, 50, 50, 0.41);
+  box-shadow: 0 3px 8px 1px rgba(50, 50, 50, 0.41);
+  width: calc(100% - #{$uk-sidebar-width});
+  color: $uk-navbar-top-color;
+  height: $uk-navbar-top-height;
+
+  .uk-navbar-account {
+    margin-right: 35px;
+    span {
+      margin: 10px;
+    }
+  }
+  .uk-navbar-toggle, .uk-button {
+    background-color: $uk-navbar-top-background;
+    color: $uk-navbar-top-color;
+  }
+  .uk-navbar-toggle:hover, .uk-button:hover {
+    background-color: darken($uk-navbar-top-background, 3%);
+  }
+  .uk-navbar-toggle:active, .uk-button:hover {
+    background-color: darken($uk-navbar-top-background, 5%);
+  }
+  .uk-navbar-content, a.uk-navbar-toggle {
+    height: $uk-navbar-top-height;
+  }
+  .uk-dropdown{
+    //border: 1px solid #e2e2e2;
+    border-radius: 2px;
+  }
+}
+
+
+/* Sub-object: `uk-navbar-toggle`
+ ========================================================================== */
+
+.uk-navbar-toggle-search:after {
+  content: $navbar-toggle-icon-search;
+}
+
+.uk-navbar-toggle-bell-o:after {
+  content: $navbar-toggle-icon-bell-o;
+}
+
+.uk-navbar-toggle-arrow-left:after {
+  content: $navbar-toggle-icon-arrow-left;
+}
+
+.uk-navbar-toggle-plus:after {
+  content: $navbar-toggle-icon-plus;
+}
+
+.uk-navbar-toggle-files-o:after {
+  content: $navbar-toggle-icon-files-o;
+}
+
+.uk-navbar-toggle-pencil:after {
+  content: $navbar-toggle-icon-pencil;
+}
+
+.uk-navbar-toggle-print:after {
+  content: $navbar-toggle-icon-print;
+}
+
+.uk-navbar-toggle-tag:after {
+  content: $navbar-toggle-icon-tag;
+}
+
+/* Sub-object: `uk-navbar-avatar`
+ ========================================================================== */
+.uk-navbar-content .uk-avatar {
+  width: $uk-navbar-top-height - 25px;
+  height: $uk-navbar-top-height - 25px;
+}
+
+/* Sub-object: `uk-navbar-badge`
+ ========================================================================== */
+.uk-navbar-badge {
+  position: relative;
+}
+
+.uk-navbar-toggle .uk-badge.uk-badge-notification {
+  top: 13px;
+  position: absolute;
+  left: 14px;
+}

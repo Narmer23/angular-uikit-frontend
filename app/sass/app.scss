@@ -1,0 +1,235 @@
+@import "../../bower_components/uikit/scss/uikit-mixins.scss";
+
+// your custom code goes here, e.g. mixins, variables
+$icon-font-path: "../bower_components/uikit/fonts" !default;
+
+//
+// Breakpoints
+//
+//$breakpoint-small:                               480px !default;
+//$breakpoint-medium:                              768px !default;
+//$breakpoint-large:                               960px !default;
+//$breakpoint-xlarge:                              1220px !default;
+
+// Colors
+$color-light-primary: #b7d5e3;
+$color-primary: #5388a1;
+$color-medium-primary: #2d6682;
+$color-dark-primary: #0f3f56;
+
+$color-light-secondary: #79C79B;
+$color-secondary: #59b581;
+$color-medium-secondary: #187C43;
+$color-dark-secondary: #06612E;
+
+$color-danger: #BC482A;
+$color-success: #59B581;
+$color-warning: #DB9A4F;
+
+$base-body-background: #e2e2e2;
+$block-primary-background: $color-primary;
+$block-success-background: $color-secondary;
+
+//navbar top
+$uk-navbar-top-background: #fff;
+$uk-navbar-top-color: #777;
+
+//panel
+$panel-box-background: #fff;
+$panel-box-secondary-background: $base-body-background !default;
+$panel-box-list: #f5f5f5 !default;
+$panel-box-list-hover: darken($panel-box-list, 3%);
+
+$navbar-background: $panel-box-list !default;
+
+// button 
+$button-primary-background: $color-primary !default;
+$button-primary-hover-background: lighten($color-primary, 5%);
+$button-primary-active-background: darken($color-primary, 5%);
+
+$button-dark-primary-background: $color-dark-primary !default;
+$button-dark-primary-hover-background: lighten($color-dark-primary, 5%);
+$button-dark-primary-active-background: darken($color-dark-primary, 5%);
+
+$button-danger-background: $color-danger !default;
+$button-danger-hover-background: lighten($color-danger, 5%);
+$button-danger-active-background: darken($color-danger, 5%);
+
+// Workaround since there's no secondary button
+$button-success-background: $color-secondary !default;
+$button-success-hover-background: lighten($color-secondary, 5%);
+$button-success-active-background: darken($color-secondary, 5%);
+
+// side menu 
+$nav-side-color: #f5f5f5 !default;
+$nav-side-hover-background: rgba(255, 255, 255, 0.1) !default;
+$nav-side-hover-color: #fff !default;
+$nav-side-active-background: $color-secondary !default;
+$nav-side-active-color: #fff !default;
+$nav-side-header-color: $color-secondary !default;
+$nav-side-divider-border: lighten($color-primary, 2%);
+
+// text
+$text-primary-color: $color-primary !default;
+$text-success-color: $color-secondary !default;
+
+//badge
+$badge-background: $color-secondary !default;
+
+//link
+$base-link-color: $color-secondary;
+$base-link-hover-color: $color-light-secondary;
+
+//Dropdown
+$dropdown-background: $panel-box-list;
+$nav-dropdown-hover-background: $color-secondary;
+
+@import "../../bower_components/uikit/scss/uikit.scss";
+@import "../../bower_components/uikit/scss/components/tooltip.scss";
+@import "../../bower_components/uikit/scss/components/autocomplete.scss";
+@import "../../bower_components/uikit/scss/components/placeholder.scss";
+@import "../../bower_components/uikit/scss/components/notify.scss";
+@import "../../bower_components/uikit/scss/components/accordion.scss";
+@import "../../sass_lib/loader.scss";
+@import "../../sass_lib/nav.scss";
+
+
+//Table
+.uk-table.hx-table-selectable tbody {
+  tr:hover {
+    cursor: pointer;
+  }
+  tr.uk-active {
+    background-color: $color-secondary;
+    color: #fff;
+  }
+}
+
+.uk-table thead th {
+  //font-weight:normal;
+  font-size: 95%;
+  color: $color-primary;
+}
+
+.uk-border-rounded {
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.hx-card-teaser {
+  height: 150px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.uk-panel-hover > .uk-panel-teaser {
+  margin-top: -9px;
+  margin-left: -9px;
+  margin-right: -9px;
+}
+
+.hx-card-bottom-button-container {
+  position: absolute;
+  bottom: 15px;
+}
+
+.hx-filter-tag {
+  padding: 5px;
+  background-color: #e2eff5;
+  margin: 0 5px 5px 0;
+  color: $color-dark-primary;
+  display: inline-block;
+}
+
+//Table form
+td .uk-ng-table-form {
+  margin-bottom: 0;
+}
+
+.uk-table-json-repeat td {
+  border: 1px solid #e2e2e2;
+}
+
+.uk-table-json-repeat tr.uk-striped {
+  background-color: #f7f7f7;
+}
+
+th {
+  color: white !important;
+  background-color: $color-medium-primary;
+}
+
+tr {
+  border: solid 1px #e2e2e2;
+}
+
+thead tr {
+  border: none;
+}
+
+//Wrapper
+.uk-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 270px;
+  right: 0;
+}
+
+// panel
+.uk-panel-box-primary {
+  background-color: $block-primary-background;
+  .uk-form {
+    input {
+      border: none;
+    }
+    label {
+      opacity: 0.86;
+    }
+  }
+}
+
+.uk-panel-hover:hover {
+  cursor: pointer;
+}
+
+.uk-panel-box-list {
+  background-color: $panel-box-list;
+  border-radius: 2px;
+  &.uk-panel-hover:hover {
+    background: $panel-box-list-hover;
+  }
+}
+
+//pagination
+.uk-pagination {
+  background-color: $panel-box-list;
+  margin-top: 1px;
+  margin-bottom: 0;
+  padding: 14px 0;
+}
+
+.uk-pagination > .uk-active > span {
+  background: $color-secondary;
+}
+
+//description list line
+.uk-description-list-line {
+  dt {
+    font-size: 93%;
+    color: $color-primary;
+  }
+  dd {
+    min-height: 20px;
+    span {
+      display: inline-block;
+      margin-right: 4px;
+
+    }
+  }
+}
+
+.uk-form input[type=checkbox], .uk-form input[type=radio] {
+  outline: 0;
+}

@@ -1,0 +1,50 @@
+<div class="uk-panel uk-panel-box nrc-medium-primary-bg">
+    <h3 class="uk-margin-left uk-contrast"><i class="uk-icon-clone uk-text-success"></i> New Example
+    </h3>
+</div>
+
+<nav class="uk-navbar">
+    <a href="" ui-sref="example.list" class="uk-navbar-toggle uk-navbar-toggle-arrow-left"></a>
+</nav>
+<form name="newExampleForm" class="uk-form uk-form-horizontal uk-margin-left uk-margin-right uk-margin"
+      novalidate>
+
+    <div class="uk-grid uk-grid-match" data-uk-grid-margin>
+
+        <div class="uk-width-1-1">
+            <div class="uk-panel uk-panel-box">
+                <h3 class="uk-panel-title">
+                    Info
+                </h3>
+                <fieldset>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="exampleCode">Code</label>
+                        <div class="uk-form-controls">
+                            <input id="exampleCode" type="text" name="exampleCode"
+                                   ng-model="vm.newExample.code"
+                                   class="uk-width-1-1"
+                                   required>
+                        </div>
+                    </div>
+                    <div class="uk-form-row">
+                        <label class="uk-form-label" for="exampleName">Name</label>
+                        <div class="uk-form-controls">
+                            <input id="exampleName" type="text" name="exampleName"
+                                   ng-model="vm.newExample.name"
+                                   class="uk-width-1-1"
+                                   required>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <div class="uk-text-center uk-width-1-1">
+            <button ng-disabled="newExampleForm.$invalid" class="uk-button uk-button-success uk-button-large uk-width-1-5"
+                    type="button"
+                    ng-click="vm.save(vm.newExample)">
+                Save
+            </button>
+        </div>
+    </div>
+</form>
