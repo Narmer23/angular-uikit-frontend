@@ -62,6 +62,10 @@ $uk-navbar-top-height: 60px !default;
 
 .uk-sidebar-logo {
   height: $uk-navbar-top-height;
+  img {
+    height: 100%;
+    padding: 5px;
+  }
 }
 
 .uk-navbar-top {
