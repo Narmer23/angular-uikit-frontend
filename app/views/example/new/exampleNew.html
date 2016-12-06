@@ -1,50 +1,62 @@
-<div class="uk-panel uk-panel-box uk-medium-primary-bg">
-    <h3 class="uk-margin-left uk-contrast"><i class="uk-icon-clone uk-text-success"></i> New Example
-    </h3>
-</div>
+<div class="uk-grid uk-grid-collapse">
+    <div class="uk-width-1-1">
+        <div class="uk-panel uk-panel-box uk-panel-box-secondary">
+            <div class="uk-border-rounded">
+                <div class="uk-panel uk-panel-box uk-medium-primary-bg">
+                    <h3 class="uk-margin-left uk-contrast"><i class="uk-icon-clone uk-text-success"></i>
+                        {{'EXAMPLE'|translate:"{TYPE:'new'}"}}
+                    </h3>
+                </div>
 
-<nav class="uk-navbar">
-    <a href="" ui-sref="example.list" class="uk-navbar-toggle uk-navbar-toggle-arrow-left"></a>
-</nav>
-<form name="newExampleForm" class="uk-form uk-form-horizontal uk-margin-left uk-margin-right uk-margin"
-      novalidate>
+                <nav class="uk-navbar">
+                    <a href="" ui-sref="example.list" class="uk-navbar-toggle uk-navbar-toggle-arrow-left"></a>
+                </nav>
+                <div class="uk-panel uk-panel-box">
 
-    <div class="uk-grid uk-grid-match" data-uk-grid-margin>
+                    <form name="newExampleForm"
+                          class="uk-form uk-form-horizontal uk-margin-left uk-margin-right uk-margin"
+                          ng-submit="vm.save(vm.newExample)"
+                          novalidate>
 
-        <div class="uk-width-1-1">
-            <div class="uk-panel uk-panel-box">
-                <h3 class="uk-panel-title">
-                    Info
-                </h3>
-                <fieldset>
-                    <div class="uk-form-row">
-                        <label class="uk-form-label" for="exampleCode">Code</label>
-                        <div class="uk-form-controls">
-                            <input id="exampleCode" type="text" name="exampleCode"
-                                   ng-model="vm.newExample.code"
-                                   class="uk-width-1-1"
-                                   required>
+                        <div class="uk-grid uk-grid-match" data-uk-grid-margin>
+
+                            <div class="uk-width-1-1">
+                                <div class="uk-panel uk-panel-box uk-panel-header">
+                                    <h3 class="uk-panel-title">
+                                        <i class="uk-icon-info-circle uk-text-success"></i> {{'INFO'|translate}}
+                                    </h3>
+                                    <fieldset>
+                                        <div class="uk-form-row">
+                                            <label class="uk-form-label" for="exampleCode">{{'CODE'|translate}}</label>
+                                            <div class="uk-form-controls">
+                                                <input id="exampleCode" type="text" name="exampleCode"
+                                                       ng-model="vm.newExample.code"
+                                                       class="uk-width-1-1"
+                                                       required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-form-row">
+                                            <label class="uk-form-label" for="exampleName">{{'NAME'|translate}}</label>
+                                            <div class="uk-form-controls">
+                                                <input id="exampleName" type="text" name="exampleName"
+                                                       ng-model="vm.newExample.name"
+                                                       class="uk-width-1-1"
+                                                       required>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="uk-width-1-1 uk-text-center">
+                                <button class="uk-button uk-width-1-5 uk-button-success uk-align-center" type="submit" ng-disabled="newExampleForm.$invalid">
+                                    {{'SAVE'|translate}}
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="uk-form-row">
-                        <label class="uk-form-label" for="exampleName">Name</label>
-                        <div class="uk-form-controls">
-                            <input id="exampleName" type="text" name="exampleName"
-                                   ng-model="vm.newExample.name"
-                                   class="uk-width-1-1"
-                                   required>
-                        </div>
-                    </div>
-                </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
-
-        <div class="uk-text-center uk-width-1-1">
-            <button ng-disabled="newExampleForm.$invalid" class="uk-button uk-button-success uk-button-large uk-width-1-5"
-                    type="button"
-                    ng-click="vm.save(vm.newExample)">
-                Save
-            </button>
-        </div>
     </div>
-</form>
+</div>

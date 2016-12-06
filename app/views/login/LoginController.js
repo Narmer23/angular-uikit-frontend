@@ -11,7 +11,7 @@ angular.module('app')
                 }
             })
     })
-    .controller("LoginController", function ($state, AuthService, InitUser) {
+    .controller("LoginController", function ($state, AuthService, InitUser, Conf) {
 
         var vm = this;
 
@@ -21,7 +21,7 @@ angular.module('app')
                     user: data,
                     isLoggedIn: true
                 });
-                $state.go('development.list');
+                $state.go(Conf.landing);
             },
             function (error) {
                 vm.loginError = true;

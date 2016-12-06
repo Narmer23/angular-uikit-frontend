@@ -30,6 +30,10 @@ $base-body-background: #e2e2e2;
 $block-primary-background: $color-primary;
 $block-success-background: $color-secondary;
 
+//Login
+$login-background-image: "../images/holonix-bg.jpg";
+$login-background-color: white;
+
 //navbar top
 $uk-navbar-top-background: #fff;
 $uk-navbar-top-color: #777;
@@ -93,6 +97,34 @@ $nav-dropdown-hover-background: $color-secondary;
 @import "../../sass_lib/loader.scss";
 @import "../../sass_lib/nav.scss";
 
+.hx-login-background {
+  position: relative;
+  background: $login-background-color;
+  overflow: hidden;
+  z-index: 0;
+  .hx-login-box {
+    position: relative;
+    z-index: 3;
+  }
+}
+
+.hx-login-background::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.3;
+  background: url($login-background-image) no-repeat 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
 
 //Table
 .uk-table.hx-table-selectable tbody {
@@ -105,7 +137,7 @@ $nav-dropdown-hover-background: $color-secondary;
   }
 }
 
-.ng-dirty.ng-invalid{
+.ng-dirty.ng-invalid {
   border: 1px solid $color-danger;
 }
 

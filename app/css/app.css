@@ -8962,12 +8962,41 @@ a.uk-thumbnail:focus {
   position: absolute;
   left: 14px; }
 
+.hx-login-background {
+  position: relative;
+  background: white;
+  overflow: hidden;
+  z-index: 0; }
+  .hx-login-background .hx-login-box {
+    position: relative;
+    z-index: 3; }
+
+.hx-login-background::before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.3;
+  background: url("../images/holonix-bg.jpg") no-repeat 50% 0;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: cover; }
+
 .uk-table.hx-table-selectable tbody tr:hover {
   cursor: pointer; }
 
 .uk-table.hx-table-selectable tbody tr.uk-active {
   background-color: #D84813;
   color: #fff; }
+
+.ng-dirty.ng-invalid {
+  border: 1px solid #BC482A; }
 
 .uk-medium-primary-bg {
   background-color: #0A4670; }

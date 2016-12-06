@@ -21,6 +21,5 @@ angular.module('app')
         var vm = this;
 
         vm.example = Example;
-        vm.samples = Example.samples;
         
     });

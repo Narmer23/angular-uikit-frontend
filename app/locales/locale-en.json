@@ -1,0 +1,16 @@
+{
+  "ADD": "Add",
+  "WRONG_USER_OR_PASSWORD":"Wrong username or password",
+  "LOGIN": "Login",
+  "LOGOUT": "Logout",
+  "PROFILE": "Profile",
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "EXAMPLE": "{TYPE, select, new{New } modify{Modify } other{}}Example{PLURAL, select, true{s} other{}}",
+  "SEARCH":"Search",
+  "CODE": "Code",
+  "NAME": "Name",
+  "INFO": "Info",
+  "SAVE": "Save",
+  "MODIFY": "Modify"
+}

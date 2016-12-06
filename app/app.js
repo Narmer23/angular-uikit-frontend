@@ -18,7 +18,7 @@ angular.element(document).ready(
         });
 
         var Conf = {
-            basePath: "http://<API_BASE_PATH>/nrc-lab/api",
+            basePath: "http://<API_BASE_PATH>/api",
             landing: "example.list",
             login: "login"
         };

@@ -17,7 +17,8 @@
     "angular-translate": "latest",
     "angular-translate-loader-static-files": "latest",
     "ng-file-upload": "latest",
-    "angular-uikit": "https://github.com/sandrotaje/angular-uikit.git"
+    "angular-uikit": "https://github.com/sandrotaje/angular-uikit.git",
+    "angular-translate-interpolation-messageformat": "^2.13.0"
   },
   "overrides": {
     "uikit": {

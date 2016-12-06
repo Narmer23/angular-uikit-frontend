@@ -2,7 +2,7 @@
  * Created by Manuel on 16/11/2016.
  */
 angular.module('app')
-    .controller("NavbarController", function ($state, User, AuthService, Conf) {
+    .controller("NavbarController", function ($state, User, AuthService, ImageAttachmentService, Conf) {
         var vm = this;
         vm.user = User;
 
@@ -15,7 +15,7 @@ angular.module('app')
         };
 
         vm.getAvatarPath = function(){
-            return Conf.basePath + '/attachments/' + user.avatar.id + '/content';
+            return ImageAttachmentService.getAttachmentPath(vm.user.avatar);
         };
         
     });
