@@ -1,16 +1,22 @@
 {
   "ADD": "Add",
-  "WRONG_USER_OR_PASSWORD":"Wrong username or password",
+  "WRONG_USER_OR_PASSWORD": "Wrong username or password",
   "LOGIN": "Login",
   "LOGOUT": "Logout",
-  "PROFILE": "Profile",
+  "PROFILE": "{TYPE, select, new{New } modify{Modify } other{}}Profile{PLURAL, select, true{s} other{}}",
   "USERNAME": "Username",
-  "PASSWORD": "Password",
+  "PASSWORD": "{TYPE, select, new{New } repeat{Repeat new} old{Old } other{}}Password",
   "EXAMPLE": "{TYPE, select, new{New } modify{Modify } other{}}Example{PLURAL, select, true{s} other{}}",
-  "SEARCH":"Search",
+  "SEARCH": "Search",
   "CODE": "Code",
   "NAME": "Name",
+  "FIRST_NAME": "First name",
+  "LAST_NAME": "Last name",
+  "EMAIL": "Email",
   "INFO": "Info",
   "SAVE": "Save",
-  "MODIFY": "Modify"
+  "MODIFY": "Modify",
+  "AVATAR": "Avatar",
+  "IMAGE_DROP_BOX": "Drop Image file here",
+  "INFORMATION": "{TYPE, select, general{General } other{}}Information"
 }

@@ -45,6 +45,10 @@ angular.module('services').factory('AuthService', function ($q, $timeout, InitUs
         return authService.user;
     };
 
+    authService.setUser = function (user) {
+        authService.user = user;
+    };
+    
     authService.isAuthenticated = function () {
         return authService.isLoggedIn;
     };

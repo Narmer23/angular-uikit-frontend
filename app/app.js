@@ -56,6 +56,7 @@ angular.module('app', [
     'translateModule',
     'ui.router',
     'angularUikit',
+    'ngFileUpload',
     'authModule',
     'services',
     'directives',

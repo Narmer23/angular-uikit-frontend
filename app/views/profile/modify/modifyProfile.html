@@ -1,0 +1,107 @@
+<div class="uk-grid uk-grid-collapse">
+    <div class="uk-width-1-1">
+        <div class="uk-panel uk-panel-box uk-panel-box-secondary">
+            <div class="uk-border-rounded">
+                <div class="uk-panel uk-panel-box uk-medium-primary-bg uk-margin-remove">
+                    <h3 class="uk-margin-remove uk-contrast uk-float-left">
+                        <i class="uk-icon-cogs uk-text-success"></i> {{'PROFILE'|translate:"{TYPE:'modify'}"}}
+                    </h3>
+                </div>
+                <nav class="uk-navbar">
+                    <a back-button class="uk-navbar-toggle uk-navbar-toggle-arrow-left"></a>
+                </nav>
+                <div class="uk-panel uk-panel-box">
+                    <form name="modifyProfileForm" class="uk-form uk-form-horizontal"
+                          ng-submit="vm.save(vm.userUpdate)"
+                          novalidate>
+                        <div class="uk-grid uk-grid-match" data-uk-grid-margin>
+                            <div class="uk-width-medium-1-4 uk-width-small-1-1">
+                                <div class="uk-panel uk-panel-box uk-panel-header">
+                                    <h3 class="uk-panel-title">
+                                        <i class="uk-icon-image uk-text-success"></i> {{'AVATAR'|translate}}
+                                    </h3>
+
+                                    <div class="uk-thumbnail" ng-show="vm.avatarUrl">
+                                        <img ng-src="{{vm.avatarUrl}}" alt="">
+                                        <div class="uk-thumbnail-caption"><a href="" ng-click="vm.removeAvatar()"
+                                                                             class="uk-icon-hover uk-icon-trash"></a>
+                                        </div>
+                                    </div>
+
+                                    <div data-ngf-drop="vm.uploadAvatar($files)" ngf-select="vm.uploadAvatar($files)"
+                                         data-ngf-drag-over-class="'uk-dragover'" data-ngf-multiple="false"
+                                         data-ngf-pattern="'image/*'"
+                                         ng-hide="vm.avatarUrl">
+                                        <div id="upload-drop" class="uk-placeholder">
+                                            <i class="uk-icon-cloud-upload uk-icon-medium uk-text-muted uk-margin-small-right"></i>
+                                            {{'IMAGE_DROP_BOX'|translate}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="uk-width-3-4">
+
+                                <div class="uk-panel uk-panel-box uk-panel-header">
+                                    <h3 class="uk-panel-title">
+                                        <i class="uk-icon-info-circle uk-text-success"></i> {{'INFORMATION'| translate:"{TYPE: 'general'}"}}
+                                    </h3>
+                                    <div class="uk-grid" data-uk-grid-margin>
+                                        <div class="uk-width-medium-1-2 uk-width-small-1-1">
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">{{'FIRST_NAME'|translate}}</label>
+                                                <div class="uk-form-controls">
+                                                    <input type="text" ng-model="vm.userUpdate.firstName" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">{{'LAST_NAME'|translate}}</label>
+                                                <div class="uk-form-controls">
+                                                    <input type="text" ng-model="vm.userUpdate.lastName" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">{{'EMAIL'|translate}}</label>
+                                                <div class="uk-form-controls">
+                                                    <input type="email" ng-model="vm.userUpdate.email" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-width-medium-1-2 uk-width-small-1-1">
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">{{'PASSWORD'|translate:"{TYPE:'old'}"}}</label>
+                                                <div class="uk-form-controls">
+                                                    <input type="password" ng-model="vm.changePassword.currentPassword"
+                                                           placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">{{'PASSWORD'|translate:"{TYPE:'new'}"}}</label>
+                                                <div class="uk-form-controls">
+                                                    <input type="password" ng-model="vm.changePassword.newPassword"
+                                                           placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">{{'PASSWORD'|translate:"{TYPE:'repeat'}"}}</label>
+                                                <div class="uk-form-controls">
+                                                    <input type="password" ng-model="vm.changePassword.checkPassword" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="uk-width-1-1 uk-text-center">
+                                <button class="uk-button uk-width-1-5 uk-button-success uk-align-center" type="submit"
+                                        ng-disabled="!modifyProfileForm.$valid || vm.changePassword.newPassword!=vm.changePassword.checkPassword">
+                                    {{'SAVE'|translate}}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

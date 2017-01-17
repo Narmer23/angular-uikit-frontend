@@ -8893,6 +8893,9 @@ a.uk-thumbnail:focus {
  ========================================================================== */
 .uk-sidebar-logo {
   height: 60px; }
+  .uk-sidebar-logo img {
+    height: 100%;
+    padding: 5px; }
 
 .uk-navbar-top {
   z-index: 1000;
