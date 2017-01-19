@@ -2,7 +2,7 @@
  * Created by Manuel on 16/11/2016.
  */
 angular.module('app')
-    .controller("NavbarController", function ($state, $scope, User, AuthService, ImageAttachmentService, Conf) {
+    .controller("NavbarController", ['$state', '$scope', 'User', 'AuthService', 'ImageAttachmentService', 'Conf', function ($state, $scope, User, AuthService, ImageAttachmentService, Conf) {
         var vm = this;
         vm.user = User;
 
@@ -22,4 +22,4 @@ angular.module('app')
             vm.user = AuthService.getUser();
         })
         
-    });
+    }]);

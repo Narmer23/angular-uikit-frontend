@@ -1,5 +1,5 @@
 angular.module('services')
-  .factory('ImageAttachmentService', function (Conf) {
+  .factory('ImageAttachmentService', ['Conf', function (Conf) {
     var imageAttachmentService = {};
 
     imageAttachmentService.getAttachmentPath = function (attachment, asThumbnail, percentRatio) {
@@ -22,4 +22,4 @@ angular.module('services')
 
 
     return imageAttachmentService;
-  });
+  }]);

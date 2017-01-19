@@ -1,7 +1,7 @@
 /**
  * Created by Manuel on 27/09/2016.
  */
-angular.module('services').factory('ProfileService', function ($q, $http, Conf) {
+angular.module('services').factory('ProfileService', ['$q', '$http','Conf', function ($q, $http, Conf) {
     var profileService = {};
         
     profileService.patchUser = function (userUpdate) {
@@ -39,4 +39,4 @@ angular.module('services').factory('ProfileService', function ($q, $http, Conf) 
     };
 
     return profileService;
-});
+}]);

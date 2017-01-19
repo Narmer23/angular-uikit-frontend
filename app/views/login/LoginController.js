@@ -1,5 +1,5 @@
 angular.module('app')
-    .config(function ($stateProvider, USER_ROLES) {
+    .config(['$stateProvider', 'USER_ROLES', function ($stateProvider, USER_ROLES) {
         $stateProvider
             .state("login", {
                 url: '/login',
@@ -10,8 +10,8 @@ angular.module('app')
                     authorizedRoles: [USER_ROLES.anonymous]
                 }
             })
-    })
-    .controller("LoginController", function ($state, AuthService, InitUser, Conf) {
+    }])
+    .controller("LoginController", ['$state', 'AuthService', 'InitUser', 'Conf', function ($state, AuthService, InitUser, Conf) {
 
         var vm = this;
 
@@ -28,4 +28,4 @@ angular.module('app')
             })
         }
                         
-    });
+    }]);

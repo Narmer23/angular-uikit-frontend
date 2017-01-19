@@ -1,7 +1,7 @@
 /**
  * Created by Manuel on 27/09/2016.
  */
-angular.module('services').factory('ExampleService', function ($q, $http, Conf) {
+angular.module('services').factory('ExampleService', ['$q', '$http', 'Conf', function ($q, $http, Conf) {
     var exampleService = {};
 
     var filter = {
@@ -145,4 +145,4 @@ angular.module('services').factory('ExampleService', function ($q, $http, Conf) 
     };
 
     return exampleService;
-});
+}]);

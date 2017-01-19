@@ -1,7 +1,7 @@
-@import "../../bower_components/uikit/scss/uikit-mixins.scss";
+@import "../../node_modules/uikit/dist/scss/uikit-mixins.scss";
 
 // your custom code goes here, e.g. mixins, variables
-$icon-font-path: "../bower_components/uikit/fonts" !default;
+$icon-font-path: "../../node_modules/uikit/dist/fonts" !default;
 
 //
 // Breakpoints
@@ -89,12 +89,12 @@ $base-link-hover-color: $color-light-secondary;
 $dropdown-background: $panel-box-list;
 $nav-dropdown-hover-background: $color-secondary;
 
-@import "../../bower_components/uikit/scss/uikit.scss";
-@import "../../bower_components/uikit/scss/components/tooltip.scss";
-@import "../../bower_components/uikit/scss/components/autocomplete.scss";
-@import "../../bower_components/uikit/scss/components/placeholder.scss";
-@import "../../bower_components/uikit/scss/components/notify.scss";
-@import "../../bower_components/uikit/scss/components/accordion.scss";
+@import "../../node_modules/uikit/dist/scss/uikit.scss";
+@import "../../node_modules/uikit/dist/scss/components/tooltip.scss";
+@import "../../node_modules/uikit/dist/scss/components/autocomplete.scss";
+@import "../../node_modules/uikit/dist/scss/components/placeholder.scss";
+@import "../../node_modules/uikit/dist/scss/components/notify.scss";
+@import "../../node_modules/uikit/dist/scss/components/accordion.scss";
 @import "../../sass_lib/loader.scss";
 @import "../../sass_lib/nav.scss";
 

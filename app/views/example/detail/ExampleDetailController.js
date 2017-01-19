@@ -1,5 +1,5 @@
 angular.module('app')
-    .config(function ($stateProvider, USER_ROLES) {
+    .config(['$stateProvider', 'USER_ROLES', function ($stateProvider, USER_ROLES) {
         $stateProvider
             .state("example.detail", {
                 url: '/detail/:exampleId',
@@ -15,11 +15,11 @@ angular.module('app')
                     authorizedRoles: [USER_ROLES.user]
                 }
             })
-    })
-    .controller("ExampleDetailController", function (Example) {
+    }])
+    .controller("ExampleDetailController",['Example', function (Example) {
 
         var vm = this;
 
         vm.example = Example;
-        
-    });
+
+    }]);

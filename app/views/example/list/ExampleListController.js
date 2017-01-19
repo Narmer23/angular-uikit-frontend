@@ -1,5 +1,5 @@
 angular.module('app')
-    .config(function ($stateProvider, USER_ROLES) {
+    .config(['$stateProvider', 'USER_ROLES', function ($stateProvider, USER_ROLES) {
         $stateProvider
             .state("example.list", {
                 url: '/list',
@@ -18,8 +18,8 @@ angular.module('app')
                     }
                 }
             })
-    })
-    .controller("ExampleListController", function (ExampleService, Examples, ExamplesLength, Conf) {
+    }])
+    .controller("ExampleListController",['ExampleService', 'Examples', 'ExamplesLength', 'Conf' ,function (ExampleService, Examples, ExamplesLength, Conf) {
 
         var vm = this;
         vm.examples = Examples;
@@ -58,5 +58,5 @@ angular.module('app')
                vm.examplesLength = data; 
             });
         };
-    });
+    }]);
 

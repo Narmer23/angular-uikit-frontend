@@ -1,5 +1,5 @@
 angular.module('app')
-    .config(function ($stateProvider, USER_ROLES) {
+    .config(['$stateProvider', 'USER_ROLES', function ($stateProvider, USER_ROLES) {
         $stateProvider
             .state("profile.modify", {
                 url: '/modifyProfile',
@@ -10,8 +10,8 @@ angular.module('app')
                     authorizedRoles: [USER_ROLES.user]
                 }
             })
-    })
-    .controller("ModifyProfileController", function ($rootScope, ProfileService, AuthService, $state, Conf, Upload) {
+    }])
+    .controller("ModifyProfileController", ['$rootScope', 'ProfileService', 'AuthService', '$state', 'Conf', 'Upload', function ($rootScope, ProfileService, AuthService, $state, Conf, Upload) {
 
         var vm = this;
         vm.user = AuthService.getUser();
@@ -74,4 +74,4 @@ angular.module('app')
             window.URL.revokeObjectURL(vm.avatarUrl);
         };
 
-    });
+    }]);
