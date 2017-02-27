@@ -1,4 +1,4 @@
-angular.module('app').directive('onEnter', function($timeout) {
+angular.module('app').directive('onEnter', ['$timeout', function($timeout) {
     return {
         scope: {
             onEnter: "&"
@@ -14,4 +14,4 @@ angular.module('app').directive('onEnter', function($timeout) {
             });
         }
     };
-});
+}]);

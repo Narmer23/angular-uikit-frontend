@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller("MainController", function ($scope, AUTH_EVENTS, $state, AuthService, $timeout, $translate, Conf) {
+    .controller("MainController",['$scope', 'AUTH_EVENTS', '$state', 'AuthService', '$timeout', '$translate', 'Conf', function ($scope, AUTH_EVENTS, $state, AuthService, $timeout, $translate, Conf) {
 
         $scope.languageSelected = $translate.use();
         $scope.showCounter = 0;
@@ -76,4 +76,4 @@ angular.module('app')
                 $scope.inLoading = false;
             }
         }
-    });
+    }]);

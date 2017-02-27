@@ -1,5 +1,5 @@
 angular.module('app')
-    .config(function ($stateProvider, USER_ROLES) {
+    .config(['$stateProvider', 'USER_ROLES', function ($stateProvider, USER_ROLES) {
         $stateProvider
             .state("root", {
                 parent: "app",
@@ -30,7 +30,7 @@ angular.module('app')
                     authorizedRoles: [USER_ROLES.user]
                 }
             })
-    })
+    }])
     .controller("RootController", function () {
         var vm = this;        
         

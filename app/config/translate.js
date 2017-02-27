@@ -1,4 +1,8 @@
-angular.module('translateModule', ["pascalprecht.translate"]).config(function ($translateProvider) {
+import 'angular-translate';
+import 'angular-translate-loader-static-files';
+import 'angular-translate-interpolation-messageformat';
+
+angular.module('translateModule', ['pascalprecht.translate']).config(['$translateProvider', function ($translateProvider) {
     $translateProvider.useMessageFormatInterpolation();
     $translateProvider.useStaticFilesLoader({
         prefix: 'locales/locale-',
@@ -10,4 +14,4 @@ angular.module('translateModule', ["pascalprecht.translate"]).config(function ($
         'en_*': 'en'
     }).determinePreferredLanguage().fallbackLanguage('en');
 
-});
+}]);

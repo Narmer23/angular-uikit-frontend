@@ -1,5 +1,5 @@
 angular.module('app')
-    .config(function($stateProvider, USER_ROLES) {
+    .config(['$stateProvider', 'USER_ROLES', function($stateProvider, USER_ROLES) {
         $stateProvider
             .state("profile", {
                 parent: 'root',
@@ -10,4 +10,4 @@ angular.module('app')
                     authorizedRoles: [USER_ROLES.user]
                 }
             })
-    });
+    }]);

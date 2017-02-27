@@ -1,14 +1,14 @@
 angular.module('authModule', [])
 
-.config(function ($httpProvider) {
+    .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push([
             '$injector',
             function ($injector) {
                 return $injector.get('AuthInterceptor');
             }
         ]);
-    })
-    .factory('AuthInterceptor', function ($rootScope, $q, AUTH_EVENTS) {
+    }])
+    .factory('AuthInterceptor', ['$rootScope', '$q', 'AUTH_EVENTS', function ($rootScope, $q, AUTH_EVENTS) {
         return {
             responseError: function (response) {
                 $rootScope.$broadcast({
@@ -18,7 +18,7 @@ angular.module('authModule', [])
                 return $q.reject(response);
             }
         };
-    })
+    }])
     .constant('AUTH_EVENTS', {
         notAuthenticated: 'authModule:notAuthenticated',
         notAuthorized: 'authModule:notAuthorized'
@@ -33,7 +33,7 @@ angular.module('authModule', [])
         operator: "operator",
         order_reader: "order_reader"
     })
-    .run(function ($rootScope, AUTH_EVENTS, AuthService, USER_ROLES, Conf) {
+    .run(['$rootScope', 'AUTH_EVENTS', 'AuthService', 'USER_ROLES', 'Conf', function ($rootScope, AUTH_EVENTS, AuthService, USER_ROLES, Conf) {
         $rootScope.$on('$stateChangeStart', function (event, next) {
             //if not defined emit notAuthorized
             if (!next || !next.data || !next.data.authorizedRoles) {
@@ -51,20 +51,20 @@ angular.module('authModule', [])
                         $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
                     }
                 }
-            }else{
-                if(next.name==Conf.login && AuthService.isAuthenticated()){
+            } else {
+                if (next.name == Conf.login && AuthService.isAuthenticated()) {
                     event.preventDefault();
                     $rootScope.$broadcast(AUTH_EVENTS.notAuthorized);
                 }
-                
+
             }
         });
-    })
-    .directive('authorizedRoles', function ($rootScope, AuthService) {
-        return{
+    }])
+    .directive('authorizedRoles', ['$rootScope', 'AuthService', function ($rootScope, AuthService) {
+        return {
             restrict: 'A',
             link: function (scope, element, attr) {
-                $rootScope.$watch(function() {
+                $rootScope.$watch(function () {
                     var authorizedRoles = attr.authorizedRoles.split(" ");
                     if (AuthService.isAuthenticated() && AuthService.isAuthorized(authorizedRoles)) {
                         element.removeClass("ng-hide");
@@ -74,5 +74,5 @@ angular.module('authModule', [])
                 });
             }
         };
-    });
+    }]);
 ;

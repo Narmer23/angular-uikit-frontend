@@ -1,4 +1,9 @@
 "use strict"
+
+import angular from 'angular';
+import './sass/app.scss';
+
+
 angular.element(document).ready(
     function () {
         var initInjector = angular.injector(['ng']);
@@ -18,7 +23,7 @@ angular.element(document).ready(
         });
 
         var Conf = {
-            basePath: "http://<API_BASE_PATH>/api",
+            basePath: "http://localhost:8080/api",
             landing: "example.list",
             login: "login"
         };
@@ -27,28 +32,41 @@ angular.element(document).ready(
 
 
         deviceReady.then(function () {
-            $http({
-                url: Conf.basePath + "/self",
-                withCredentials: true
-            }).then(function (resp) {
-
-                var user = resp.data;
-
-                angular.module('initialConfigModule').constant('InitUser', {
-                    user: user,
+            angular.module('initialConfigModule').constant('InitUser', {
+                    user: {
+                        roles: ['user']
+                    },
                     isLoggedIn: true
                 });
                 angular.bootstrap(document, ['app']);
-            }, function () {
-                angular.module('initialConfigModule').constant('InitUser', {
-                    user: null,
-                    isLoggedIn: false
-                });
-                angular.bootstrap(document, ['app']);
-            });
+            // $http({
+            //     url: Conf.basePath + "/self",
+            //     withCredentials: true
+            // }).then(function (resp) {
+
+            //     var user = resp.data;
+
+            //     angular.module('initialConfigModule').constant('InitUser', {
+            //         user: user,
+            //         isLoggedIn: true
+            //     });
+            //     angular.bootstrap(document, ['app']);
+            // }, function () {
+            //     angular.module('initialConfigModule').constant('InitUser', {
+            //         user: null,
+            //         isLoggedIn: false
+            //     });
+            //     angular.bootstrap(document, ['app']);
+            // });
         });
     }
 );
+
+import 'uikit';
+import '../node_modules/uikit/dist/js/components/pagination.js';
+import 'angular-ui-router';
+import 'angular-uikit';
+import 'ng-file-upload';
 
 
 angular.module('app', [
@@ -62,13 +80,13 @@ angular.module('app', [
     'directives',
     'filters'
 ])
-    .config(function ($httpProvider, $compileProvider, $urlRouterProvider, Conf) {
+    .config(['$httpProvider', '$compileProvider', '$urlRouterProvider', 'Conf', function ($httpProvider, $compileProvider, $urlRouterProvider, Conf) {
         $httpProvider.defaults.withCredentials = true;
         $httpProvider.defaults.timeout = 10000;
         $compileProvider.debugInfoEnabled(false);
         $urlRouterProvider.otherwise(Conf.login);
-    })
-    .config(function ($stateProvider, USER_ROLES) {
+    }])
+    .config(['$stateProvider', 'USER_ROLES', function ($stateProvider, USER_ROLES) {
         $stateProvider
             .state("app", {
                 abstract: true,
@@ -78,15 +96,15 @@ angular.module('app', [
                     authorizedRoles: [USER_ROLES.user]
                 }
             })
-    })
-    .config(function ($httpProvider) {
+    }])
+    .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.interceptors.push([
             '$injector',
             function ($injector) {
                 return $injector.get('ErrorInterceptor');
             }
         ]);
-        $httpProvider.interceptors.push(function ($rootScope, $q) {
+        $httpProvider.interceptors.push(['$rootScope', '$q', function ($rootScope, $q) {
             var ajaxCall = 0;
             return {
                 request: function (config) {
@@ -117,9 +135,9 @@ angular.module('app', [
                     return $q.reject(response);
                 }
             };
-        });
-    })
-    .factory('ErrorInterceptor', function ($rootScope, $q) {
+        }]);
+    }])
+    .factory('ErrorInterceptor',['$rootScope', '$q', function ($rootScope, $q) {
         return {
             responseError: function (response) {
 
@@ -131,14 +149,20 @@ angular.module('app', [
                 return $q.reject(response);
             }
         };
-    })
-    .run(function ($rootScope) {
+    }])
+    .run(['$rootScope', function ($rootScope) {
         $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
             event.preventDefault();
             console.log(error);
         });
-    })
+    }])
 ;
 angular.module('services', []);
 angular.module('directives', []);
 angular.module('filters', []);
+
+
+function requireAll(r) {
+    r.keys().forEach(r); 
+}
+requireAll(require.context('./', true, /\.js$/));

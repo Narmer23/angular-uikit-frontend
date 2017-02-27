@@ -1,4 +1,4 @@
-angular.module('services').factory('AuthService', function ($q, $timeout, InitUser, $http, Conf) {
+angular.module('services').factory('AuthService', ['$q', '$timeout', 'InitUser', '$http', 'Conf', function ($q, $timeout, InitUser, $http, Conf) {
     var authService = {};
 
     authService.user = InitUser.user;
@@ -79,4 +79,4 @@ angular.module('services').factory('AuthService', function ($q, $timeout, InitUs
     };
 
     return authService;
-});
+}]);
