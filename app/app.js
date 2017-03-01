@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 import angular from 'angular';
 import './sass/app.scss';
@@ -23,7 +23,7 @@ angular.element(document).ready(
         });
 
         var Conf = {
-            basePath: "http://localhost:8080/api",
+            basePath: env.basePath,
             landing: "example.list",
             login: "login"
         };
@@ -32,38 +32,32 @@ angular.element(document).ready(
 
 
         deviceReady.then(function () {
-            angular.module('initialConfigModule').constant('InitUser', {
-                    user: {
-                        roles: ['user']
-                    },
+            $http({
+                url: Conf.basePath + "/self",
+                withCredentials: true
+            }).then(function (resp) {
+
+                var user = resp.data;
+
+                angular.module('initialConfigModule').constant('InitUser', {
+                    user: user,
                     isLoggedIn: true
                 });
                 angular.bootstrap(document, ['app']);
-            // $http({
-            //     url: Conf.basePath + "/self",
-            //     withCredentials: true
-            // }).then(function (resp) {
-
-            //     var user = resp.data;
-
-            //     angular.module('initialConfigModule').constant('InitUser', {
-            //         user: user,
-            //         isLoggedIn: true
-            //     });
-            //     angular.bootstrap(document, ['app']);
-            // }, function () {
-            //     angular.module('initialConfigModule').constant('InitUser', {
-            //         user: null,
-            //         isLoggedIn: false
-            //     });
-            //     angular.bootstrap(document, ['app']);
-            // });
+            }, function () {
+                angular.module('initialConfigModule').constant('InitUser', {
+                    user: null,
+                    isLoggedIn: false
+                });
+                angular.bootstrap(document, ['app']);
+            });
         });
     }
 );
 
 import 'uikit';
-import '../node_modules/uikit/dist/js/components/pagination.js';
+import 'uikit/dist/js/components/pagination.js';
+import 'uikit/dist/js/components/notify.js';
 import 'angular-ui-router';
 import 'angular-uikit';
 import 'ng-file-upload';
@@ -141,7 +135,7 @@ angular.module('app', [
         return {
             responseError: function (response) {
 
-                if ([401, 403].indexOf(response.status) < 0) {
+                if ([500, 404, 400].indexOf(response.status) >= 0) {
                     $rootScope.$broadcast("httpError", response);
                     $rootScope.$broadcast('loader:hide');
                 }
@@ -155,8 +149,7 @@ angular.module('app', [
             event.preventDefault();
             console.log(error);
         });
-    }])
-;
+    }]);
 angular.module('services', []);
 angular.module('directives', []);
 angular.module('filters', []);

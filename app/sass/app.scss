@@ -29,7 +29,6 @@ $color-warning: #DB9A4F;
 
 $base-body-background: #e2e2e2;
 $block-primary-background: $color-primary;
-$block-success-background: $color-secondary;
 
 //Login
 $login-background-image: "../images/holonix-bg.jpg";
@@ -56,14 +55,13 @@ $button-dark-primary-background: $color-dark-primary !default;
 $button-dark-primary-hover-background: lighten($color-dark-primary, 5%);
 $button-dark-primary-active-background: darken($color-dark-primary, 5%);
 
-$button-danger-background: $color-danger !default;
-$button-danger-hover-background: lighten($color-danger, 5%);
-$button-danger-active-background: darken($color-danger, 5%);
+$button-secondary-background: $color-secondary !default;
+$button-secondary-hover-background: lighten($color-secondary, 5%);
+$button-secondary-active-background: darken($color-secondary, 5%);
 
-// Workaround since there's no secondary button
-$button-success-background: $color-secondary !default;
-$button-success-hover-background: lighten($color-secondary, 5%);
-$button-success-active-background: darken($color-secondary, 5%);
+/*$button-danger-background: $color-danger !default;
+$button-danger-hover-background: lighten($color-danger, 5%);
+$button-danger-active-background: darken($color-danger, 5%);*/
 
 // side menu 
 $nav-side-color: #f5f5f5 !default;
@@ -76,7 +74,7 @@ $nav-side-divider-border: lighten($color-primary, 2%);
 
 // text
 $text-primary-color: $color-primary !default;
-$text-success-color: $color-secondary !default;
+$text-secondary-color: $color-secondary !default;
 
 //badge
 $badge-background: $color-secondary !default;
@@ -89,14 +87,96 @@ $base-link-hover-color: $color-light-secondary;
 $dropdown-background: $panel-box-list;
 $nav-dropdown-hover-background: $color-secondary;
 
+$form-advanced-checked-color: $color-secondary !default;
+
 @import "../../node_modules/uikit/dist/scss/uikit.scss";
 @import "../../node_modules/uikit/dist/scss/components/tooltip.scss";
 @import "../../node_modules/uikit/dist/scss/components/autocomplete.scss";
 @import "../../node_modules/uikit/dist/scss/components/placeholder.scss";
 @import "../../node_modules/uikit/dist/scss/components/notify.scss";
+@import "../../node_modules/uikit/dist/scss/components/form-advanced.scss";
 @import "../../node_modules/uikit/dist/scss/components/accordion.scss";
 @import "../../sass_lib/loader.scss";
 @import "../../sass_lib/nav.scss";
+
+/****************************
+* Adding secondary elements *
+*****************************/
+
+.uk-button-secondary {
+  background-color: $button-secondary-background;
+  color: #fff;
+}
+
+.uk-button-secondary:active, .uk-button-secondary.uk-active {
+  background-color: $button-secondary-active-background;
+  color: #fff;
+}
+
+.uk-button-secondary:hover, .uk-button-secondary:focus {
+  background-color: $button-secondary-hover-background;
+  color: #fff;
+}
+
+//Reset disabled state for buttons
+.uk-button:disabled {
+  background-color: $button-disabled-background;
+  color: $button-disabled-color;
+  @include hook-button-disable();
+}
+
+.uk-text-secondary {
+  color: $text-secondary-color !important;
+}
+
+.uk-medium-dark-bg {
+  background-color: #848484;
+}
+
+.uk-light-primary-bg {
+  background-color: $color-light-primary;
+}
+
+.uk-primary-bg {
+  background-color: $color-primary;
+}
+
+.uk-medium-primary-bg {
+  background-color: $color-medium-primary;
+}
+
+.uk-dark-primary-bg {
+  background-color: $color-dark-primary;
+}
+
+.uk-light-secondary-bg {
+  background-color: $color-light-secondary;
+}
+
+.uk-secondary-bg {
+  background-color: $color-secondary;
+}
+
+.uk-medium-secondary-bg {
+  background-color: $color-medium-secondary;
+}
+
+.uk-dark-secondary-bg {
+  background-color: $color-dark-secondary;
+}
+
+.uk-text-secondary {
+  color: $text-secondary-color;
+}
+
+.uk-text-dark-secondary {
+  color: $color-dark-secondary;
+}
+/**********************************/
+
+input.ng-dirty.ng-invalid {
+  border: 1px solid $color-danger;
+}
 
 .hx-login-background {
   position: relative;
@@ -127,7 +207,24 @@ $nav-dropdown-hover-background: $color-secondary;
   background-size: cover;
 }
 
-//Table
+.uk-table {
+
+  tr {
+    border: solid 1px #e2e2e2;
+  }
+  thead {
+    tr {
+      border: none;
+    }
+
+    th {
+      font-size: 95%;
+      color: white !important;
+      background-color: $color-medium-primary;
+    }
+  }
+}
+
 .uk-table.hx-table-selectable tbody {
   tr:hover {
     cursor: pointer;
@@ -136,20 +233,6 @@ $nav-dropdown-hover-background: $color-secondary;
     background-color: $color-secondary;
     color: #fff;
   }
-}
-
-.ng-dirty.ng-invalid {
-  border: 1px solid $color-danger;
-}
-
-.uk-medium-primary-bg {
-  background-color: $color-medium-primary;
-}
-
-.uk-table thead th {
-  //font-weight:normal;
-  font-size: 95%;
-  color: $color-primary;
 }
 
 .uk-border-rounded {
@@ -184,29 +267,12 @@ $nav-dropdown-hover-background: $color-secondary;
 }
 
 //Table form
-td .uk-ng-table-form {
-  margin-bottom: 0;
-}
-
 .uk-table-json-repeat td {
   border: 1px solid #e2e2e2;
 }
 
 .uk-table-json-repeat tr.uk-striped {
   background-color: #f7f7f7;
-}
-
-th {
-  color: white !important;
-  background-color: $color-medium-primary;
-}
-
-tr {
-  border: solid 1px #e2e2e2;
-}
-
-thead tr {
-  border: none;
 }
 
 //Wrapper
@@ -255,7 +321,7 @@ thead tr {
   background: $color-secondary;
 }
 
-//description list line
+/*//description list line
 .uk-description-list-line {
   dt {
     font-size: 93%;
@@ -269,7 +335,7 @@ thead tr {
 
     }
   }
-}
+}*/
 
 .uk-form input[type=checkbox], .uk-form input[type=radio] {
   outline: 0;

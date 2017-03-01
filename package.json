@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "./node_modules/.bin/webpack-dev-server"
+  },
   "dependencies": {
     "angular": "latest",
     "angular-translate": "latest",
@@ -17,13 +20,11 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.26.1",
     "file-loader": "^0.9.0",
-    "gulp-ng-annotate": "^2.0.0",
-    "live-server": "^1.0.0",
     "ng-annotate-loader": "^0.2.0",
-    "ng-annotate-webpack-plugin": "^0.2.1-pre",
     "node-sass": "^4.3.0",
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
-    "webpack": "^1.14.0"
+    "webpack": "^2.2",
+    "webpack-dev-server": "^1.16.2"
   }
 }

@@ -4,7 +4,7 @@
             <div class="uk-border-rounded">
                 <div class="uk-panel uk-panel-box uk-medium-primary-bg uk-margin-remove">
                     <h3 class="uk-margin-remove uk-contrast uk-float-left">
-                        <i class="uk-icon-cogs uk-text-secondary"></i> {{'PROFILE'|translate:"{TYPE:'modify'}"}}
+                        <i class="uk-icon-cogs uk-text-secondary"></i> {{'USER'|translate:"{TYPE:'new'}"}}
                     </h3>
                 </div>
                 <nav class="uk-navbar">
@@ -12,7 +12,7 @@
                 </nav>
                 <div class="uk-panel uk-panel-box">
                     <form name="modifyProfileForm" class="uk-form uk-form-horizontal"
-                          ng-submit="vm.save(vm.userUpdate)"
+                          ng-submit="vm.save(vm.userRegistration)"
                           novalidate>
                         <div class="uk-grid uk-grid-match" data-uk-grid-margin>
                             <div class="uk-width-medium-1-4 uk-width-small-1-1">
@@ -39,52 +39,55 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="uk-width-3-4">
+                            <div class="uk-width-2-4">
 
                                 <div class="uk-panel uk-panel-box uk-panel-header">
                                     <h3 class="uk-panel-title">
-                                        <i class="uk-icon-info-circle uk-text-secondary"></i> {{'INFORMATION'| translate:"{TYPE: 'general'}"}}
+                                        <i class="uk-icon-info-circle uk-text-secondary"></i> {{'INFORMATION'|
+                                        translate:"{TYPE: 'general'}"}}
                                     </h3>
                                     <div class="uk-grid" data-uk-grid-margin>
-                                        <div class="uk-width-medium-1-2 uk-width-small-1-1">
+                                        <div class="uk-width-1-1">
+                                            <div class="uk-form-row">
+                                                <label class="uk-form-label">{{'USERNAME'|translate}}</label>
+                                                <div class="uk-form-controls">
+                                                    <input type="text" ng-model="vm.userRegistration.name"
+                                                           placeholder="">
+                                                </div>
+                                            </div>
                                             <div class="uk-form-row">
                                                 <label class="uk-form-label">{{'FIRST_NAME'|translate}}</label>
                                                 <div class="uk-form-controls">
-                                                    <input type="text" ng-model="vm.userUpdate.firstName" placeholder="">
+                                                    <input type="text" ng-model="vm.userRegistration.firstName"
+                                                           placeholder="">
                                                 </div>
                                             </div>
                                             <div class="uk-form-row">
                                                 <label class="uk-form-label">{{'LAST_NAME'|translate}}</label>
                                                 <div class="uk-form-controls">
-                                                    <input type="text" ng-model="vm.userUpdate.lastName" placeholder="">
+                                                    <input type="text" ng-model="vm.userRegistration.lastName"
+                                                           placeholder="">
                                                 </div>
                                             </div>
                                             <div class="uk-form-row">
                                                 <label class="uk-form-label">{{'EMAIL'|translate}}</label>
                                                 <div class="uk-form-controls">
-                                                    <input type="email" ng-model="vm.userUpdate.email" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="uk-width-medium-1-2 uk-width-small-1-1">
-                                            <div class="uk-form-row">
-                                                <label class="uk-form-label">{{'PASSWORD'|translate:"{TYPE:'old'}"}}</label>
-                                                <div class="uk-form-controls">
-                                                    <input type="password" ng-model="vm.changePassword.currentPassword"
+                                                    <input type="email" ng-model="vm.userRegistration.email"
                                                            placeholder="">
                                                 </div>
                                             </div>
                                             <div class="uk-form-row">
                                                 <label class="uk-form-label">{{'PASSWORD'|translate:"{TYPE:'new'}"}}</label>
                                                 <div class="uk-form-controls">
-                                                    <input type="password" ng-model="vm.changePassword.newPassword"
-                                                           placeholder="">
+                                                    <input type="password" ng-model="vm.userRegistration.password"
+                                                           placeholder="" required>
                                                 </div>
                                             </div>
                                             <div class="uk-form-row">
                                                 <label class="uk-form-label">{{'PASSWORD'|translate:"{TYPE:'repeat'}"}}</label>
                                                 <div class="uk-form-controls">
-                                                    <input type="password" ng-model="vm.changePassword.checkPassword" placeholder="">
+                                                    <input type="password" ng-model="vm.changePassword.checkPassword"
+                                                           placeholder="">
                                                 </div>
                                             </div>
                                         </div>
@@ -92,9 +95,37 @@
 
                                 </div>
                             </div>
+                            <div class="uk-width-medium-1-4 uk-width-small-1-1">
+                                <div class="uk-panel uk-panel-box uk-panel-header">
+                                    <h3 class="uk-panel-title">
+                                        <i class="uk-icon-cog uk-text-secondary"></i> {{'ROLE'|translate:"{PLURAL:'true'}"}}
+                                    </h3>
+
+                                        <fieldset>
+                                            <div class="uk-form-row">
+                                                <input class="uk-width-4-5" type="text"
+                                                       placeholder="{{'ADD_NEW_ROLE' | translate}}"
+                                                       ng-model="vm.newRole"
+                                                       data-on-enter="vm.addNewRole(vm.newRole)">
+                                                <button class="uk-button uk-width-1-5 uk-float-right uk-padding-remove uk-button-secondary"
+                                                        ng-click="vm.addNewRole(vm.newRole)"
+                                                        ng-disabled="!vm.newRole"
+                                                        type="button"><i class="uk-icon-plus"></i>
+                                                </button>
+                                            </div>
+                                            <div class="uk-form-row" ng-repeat="role in vm.roles">
+                                                <label><input type="checkbox"
+                                                              ng-init="hasRole = vm.userRegistration.roles.indexOf(role)>-1"
+                                                              ng-model="hasRole" ng-change="vm.toggleRole(role)">
+                                                    {{role}}
+                                                </label>
+                                            </div>
+                                        </fieldset>
+                                </div>
+                            </div>
                             <div class="uk-width-1-1 uk-text-center">
                                 <button class="uk-button uk-width-1-5 uk-button-secondary uk-align-center" type="submit"
-                                        ng-disabled="!modifyProfileForm.$valid || vm.changePassword.newPassword!=vm.changePassword.checkPassword">
+                                        ng-disabled="!modifyProfileForm.$valid || vm.userRegistration.password!=vm.changePassword.checkPassword">
                                     {{'SAVE'|translate}}
                                 </button>
                             </div>

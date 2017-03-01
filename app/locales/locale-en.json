@@ -5,8 +5,9 @@
   "LOGOUT": "Logout",
   "PROFILE": "{TYPE, select, new{New } modify{Modify } other{}}Profile{PLURAL, select, true{s} other{}}",
   "USERNAME": "Username",
-  "PASSWORD": "{TYPE, select, new{New } repeat{Repeat new} old{Old } other{}}Password",
+  "PASSWORD": "{TYPE, select, new{New } repeat{Repeat new } old{Old } other{}}Password",
   "EXAMPLE": "{TYPE, select, new{New } modify{Modify } other{}}Example{PLURAL, select, true{s} other{}}",
+  "USER": "{TYPE, select, new{New } modify{Modify } other{}}User{PLURAL, select, true{s} other{}} {ACTION, select, updated{updated} other{}}",
   "SEARCH": "Search",
   "CODE": "Code",
   "NAME": "Name",
@@ -18,5 +19,8 @@
   "MODIFY": "Modify",
   "AVATAR": "Avatar",
   "IMAGE_DROP_BOX": "Drop Image file here",
-  "INFORMATION": "{TYPE, select, general{General } other{}}Information"
+  "INFORMATION": "{TYPE, select, general{General } other{}}Information",
+  "UPDATE": "Update",
+  "ROLE": "Role{PLURAL, select, true{s} other{}}",
+  "ADD_NEW_ROLE": "Add new role"
 }
